@@ -157,7 +157,7 @@
         android:layout_width="wrap_content"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/ic_discuss"
+        android:src="@drawable/ic_message_white_24dp"
         android:layout_margin="@dimen/fab_margin"
         android:clickable="true"/>
 
