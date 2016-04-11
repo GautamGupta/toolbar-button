@@ -1,4 +1,4 @@
-![Toolbar Button Example](https://raw.githubusercontent.com/gautamgupta/toolbar-button/master/art/toolbar-button.png)
+![Toolbar Button Example](https://raw.githubusercontent.com/GautamGupta/toolbar-button/master/art/toolbar-button.gif)
 
 Android Toolbar Button Library
 ==============================
