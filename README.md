@@ -1,28 +1,24 @@
-![alt text](https://raw.githubusercontent.com/chrisbanes/cheesesquare/master/art/icon.png)
+![Toolbar Button Example](https://raw.githubusercontent.com/gautamgupta/toolbar-button/master/art/toolbar-button.png)
 
-Cheesesquare Sample
-===================================
+Android Toolbar Button Library
+==============================
 
-Demos the new Android Design library. This is not an exhaustive sample, but shows
-some of the important features in the Design library:
 
-- Collapsing Toolbar
-- FloatingActionButton
-- View anchoring
-- NavigationView
-- Snackbar
 
 Pre-requisites
 --------------
 
-- Android SDK v22
-- Android Build Tools v22.0.1
-- Android Support Repository r16 (for v22.2.1)
+
+Credits
+-------
+ - [Gordon Evans](https://www.linkedin.com/in/gjrevans) for concept
+ - Awesome folks at [Wirkn](http://wirkn.com/) for letting me open source this (where the idea originated from)
+ - [Cheesesquare](https://github.com/chrisbanes/cheesesquare) by Chris Banes for the material design demo app
 
 License
 -------
 
-Copyright 2014 The Android Open Source Project, Inc.
+Copyright 2016 Gautam Gupta
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
 license agreements.  See the NOTICE file distributed with this work for
