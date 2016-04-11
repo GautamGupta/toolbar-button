@@ -17,4 +17,8 @@
 
 <resources>
     <color name="window_background">#FFF5F5F5</color>
+
+    <color name="accent">#F44336</color> <!-- Red -->
+    <color name="accent_light">#FF8A80</color> <!-- A100 Red -->
+    <color name="accent_dark">#FF1744</color> <!-- A400 Red -->
 </resources>
