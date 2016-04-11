@@ -8,21 +8,34 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Interpolator;
 import android.widget.TextView;
 
 import am.gaut.android.toolbarbutton.helpers.CollapsingToolbarHelper;
 
+/**
+ * Toolbar buttons are used for a special type of promoted action. They are used in combination
+ * with a FloatingActionButton anchored to a CollapsingToolbarLayout.
+ *
+ * <p>The background color of this view defaults to the your theme's {@code colorAccent}. If you
+ * wish to change this at runtime then you can do so via
+ * {@link #setBackgroundTintList(ColorStateList)}.</p> *
+ *
+ * Requires ICS+ (sdk 12+)
+ */
 @CoordinatorLayout.DefaultBehavior(ToolbarButton.Behavior.class)
 public class ToolbarButton extends TextView {
 
     private static final String LOG_TAG = "ToolbarButton";
 
     static final int SHOW_HIDE_ANIM_DURATION = 200;
+    static final Interpolator FAST_OUT_LINEAR_IN_INTERPOLATOR = new FastOutLinearInInterpolator();
+    static final Interpolator LINEAR_OUT_SLOW_IN_INTERPOLATOR = new LinearOutSlowInInterpolator();
 
     private boolean mIsHiding;
 
@@ -88,7 +101,7 @@ public class ToolbarButton extends TextView {
                         .scaleY(1f)
                         .alpha(1f)
                         .setDuration(SHOW_HIDE_ANIM_DURATION)
-                        .setInterpolator(new LinearOutSlowInInterpolator())
+                        .setInterpolator(LINEAR_OUT_SLOW_IN_INTERPOLATOR)
                         .setListener(new AnimatorListenerAdapter() {
                             @Override
                             public void onAnimationStart(Animator animation) {
@@ -143,7 +156,7 @@ public class ToolbarButton extends TextView {
                     .scaleY(0.0F)
                     .alpha(0.0F)
                     .setDuration(SHOW_HIDE_ANIM_DURATION)
-                    .setInterpolator(new FastOutSlowInInterpolator())
+                    .setInterpolator(FAST_OUT_LINEAR_IN_INTERPOLATOR)
                     .setListener(new AnimatorListenerAdapter() {
                         private boolean mCancelled;
 

@@ -14,7 +14,7 @@ import android.view.ViewParent;
  * Need to duplicate code here because folks at Google decided to make their classes and methods
  * private
  *
- * Requires Honeycomb+ (sdk 11+)
+ * Requires ICS+ (sdk 12+)
  */
 public class CollapsingToolbarHelper {
     private static final ThreadLocal<Matrix> sMatrix = new ThreadLocal<>();
