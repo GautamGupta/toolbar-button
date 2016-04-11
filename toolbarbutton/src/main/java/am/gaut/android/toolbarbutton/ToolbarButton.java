@@ -1,4 +1,4 @@
-package am.gaut.android.toolbarbutton.views;
+package am.gaut.android.toolbarbutton;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -12,7 +12,6 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
@@ -78,7 +77,7 @@ public class ToolbarButton extends Button {
 
         // Add elevation if it's not set
         if (Build.VERSION.SDK_INT >= 21 && attrs.getAttributeValue(XMLNS_ANDROID, "elevation") == null) {
-            setElevation(android.support.design.R.dimen.design_fab_elevation);
+            setElevation(R.dimen.toolbar_button_elevation);
         }
     }
 
@@ -203,7 +202,6 @@ public class ToolbarButton extends Button {
      */
     public static class Behavior extends CoordinatorLayout.Behavior<ToolbarButton> {
         private Rect mTmpRect;
-        private boolean mIsHiding;
 
         public Behavior() {
         }
