@@ -154,14 +154,13 @@
 
     <am.gaut.android.toolbarbutton.views.ToolbarButton
         android:id="@+id/btn_toolbar_apply"
-        style="@style/ToolbarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/design_fab_elevation"
-        android:gravity="center"
+        style="?attr/borderlessButtonStyle"
+        android:background="@drawable/selector_toolbar_button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
         android:paddingLeft="@dimen/toolbar_button_padding"
         android:paddingRight="@dimen/toolbar_button_padding"
-        android:visibility="gone"
         android:drawablePadding="@dimen/toolbar_button_padding"
         android:drawableLeft="@drawable/ic_message_white_18dp"
         android:drawableStart="@drawable/ic_message_white_18dp"

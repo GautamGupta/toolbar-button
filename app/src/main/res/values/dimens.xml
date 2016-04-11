@@ -21,6 +21,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="list_item_avatar_size">40dp</dimen>
 
-    <dimen name="spacing_small">4dp</dimen>
     <dimen name="toolbar_button_padding">16dp</dimen>
 </resources>

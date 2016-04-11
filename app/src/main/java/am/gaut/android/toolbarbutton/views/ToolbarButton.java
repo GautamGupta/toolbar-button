@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -11,10 +12,11 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
-import android.widget.TextView;
+import android.widget.Button;
 
 import am.gaut.android.toolbarbutton.helpers.CollapsingToolbarHelper;
 
@@ -22,22 +24,12 @@ import am.gaut.android.toolbarbutton.helpers.CollapsingToolbarHelper;
  * Toolbar buttons are used for a special type of promoted action. They are used in combination
  * with a FloatingActionButton anchored to a CollapsingToolbarLayout.
  *
- * <p>The background color of this view defaults to the your theme's {@code colorAccent}. If you
- * wish to change this at runtime then you can do so via
- * {@link #setBackgroundTintList(ColorStateList)}.</p> *
- *
  * Requires ICS+ (sdk 14+)
  */
 @CoordinatorLayout.DefaultBehavior(ToolbarButton.Behavior.class)
-public class ToolbarButton extends TextView {
+public class ToolbarButton extends Button {
 
     private static final String LOG_TAG = "ToolbarButton";
-
-    static final int SHOW_HIDE_ANIM_DURATION = 200;
-    static final Interpolator FAST_OUT_LINEAR_IN_INTERPOLATOR = new FastOutLinearInInterpolator();
-    static final Interpolator LINEAR_OUT_SLOW_IN_INTERPOLATOR = new LinearOutSlowInInterpolator();
-
-    private boolean mIsHiding;
 
     /**
      * Callback to be invoked when the visibility of a ToolbarButton changes.
@@ -60,6 +52,12 @@ public class ToolbarButton extends TextView {
         public void onHidden(ToolbarButton toolbarBtn) {}
     }
 
+    private static final int SHOW_HIDE_ANIM_DURATION = 200;
+    private static final Interpolator FAST_OUT_LINEAR_IN_INTERPOLATOR = new FastOutLinearInInterpolator();
+    private static final Interpolator LINEAR_OUT_SLOW_IN_INTERPOLATOR = new LinearOutSlowInInterpolator();
+
+    private boolean mIsHiding;
+
     public ToolbarButton(Context context) {
         this(context, null);
     }
@@ -70,6 +68,22 @@ public class ToolbarButton extends TextView {
 
     public ToolbarButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        // Hide if there's no visibility attribute
+        if (attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "visibility") == null) {
+            setVisibility(GONE);
+        }
+
+        // Set gravity to center if it's not set
+        if (attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "gravity") == null) {
+            setGravity(Gravity.CENTER);
+        }
+
+        // Add elevation if it's not set
+        if (Build.VERSION.SDK_INT >= 21 &&
+                attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "elevation") == null) {
+            setElevation(android.support.design.R.dimen.design_fab_elevation);
+        }
     }
 
     /**
@@ -235,7 +249,7 @@ public class ToolbarButton extends TextView {
 
                 // Height should equal toolbar height
                 // If android:fitsSystemWindows="true" is enabled, add appropriate top margin
-                int inset = CollapsingToolbarHelper.getTopInset(appBarLayout);
+                final int inset = CollapsingToolbarHelper.getTopInset(appBarLayout);
                 ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
                 params.topMargin = inset;
                 params.height = rect.bottom - inset;

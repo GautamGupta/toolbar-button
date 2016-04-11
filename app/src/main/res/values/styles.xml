@@ -35,12 +35,4 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="ToolbarButton" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?android:attr/actionBarSize</item>
-        <item name="android:background">@drawable/selector_toolbar_button</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
 </resources>
