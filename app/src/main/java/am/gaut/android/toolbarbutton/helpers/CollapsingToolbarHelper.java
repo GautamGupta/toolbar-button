@@ -14,45 +14,12 @@ import android.view.ViewParent;
  * Need to duplicate code here because folks at Google decided to make their classes and methods
  * private
  *
- * Requires Honeycomb+
+ * Requires Honeycomb+ (sdk 11+)
  */
 public class CollapsingToolbarHelper {
     private static final ThreadLocal<Matrix> sMatrix = new ThreadLocal<>();
     private static final ThreadLocal<RectF> sRectF = new ThreadLocal<>();
     private static final Matrix IDENTITY = new Matrix();
-
-    CollapsingToolbarHelper() {
-    }
-
-    /**
-     * Borrowed from {@link android.support.design.widget.FloatingActionButton}
-     */
-
-    public static void showView(View view) {
-        if (view.getVisibility() != View.VISIBLE) {
-            view.setVisibility(View.VISIBLE);
-            if (ViewCompat.isLaidOut(view)) {
-                view.animate().scaleX(1.0F).scaleY(1.0F).alpha(1.0F).setDuration(200L)
-                        .setInterpolator(new FastOutSlowInInterpolator())
-                        .setListener(null);
-            }
-        }
-    }
-
-    public static void hideView(View view, boolean isHiding,
-                                AnimatorListenerAdapter animatorListenerAdapter) {
-        if (view.getVisibility() != View.GONE) {
-            if(ViewCompat.isLaidOut(view) && !view.isInEditMode()) {
-                if (!isHiding) {
-                    view.animate().scaleX(0.0F).scaleY(0.0F).alpha(0.0F).setDuration(200L)
-                            .setInterpolator(new FastOutSlowInInterpolator())
-                            .setListener(animatorListenerAdapter);
-                }
-            } else {
-                view.setVisibility(View.GONE);
-            }
-        }
-    }
 
     /**
      * Borrowed from {@link android.support.design.widget.AppBarLayout}
@@ -74,7 +41,7 @@ public class CollapsingToolbarHelper {
 
     /**
      * Hack since we don't have access to the private
-     * {@link android.support.design.widget.AppBarLayout.getTopInset()} method
+     * {@link android.support.design.widget.AppBarLayout getTopInset()} method
      */
     public static int getTopInset(ViewGroup appBarLayout) {
         int inset = 0;

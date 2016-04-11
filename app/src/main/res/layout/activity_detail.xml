@@ -152,23 +152,22 @@
 
     </android.support.v4.widget.NestedScrollView>
 
-    <TextView
+    <am.gaut.android.toolbarbutton.views.ToolbarButton
         android:id="@+id/btn_toolbar_apply"
         style="@style/ToolbarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_message_white_18dp"
-        android:drawableStart="@drawable/ic_message_white_18dp"
-        android:drawablePadding="@dimen/toolbar_button_padding"
         android:elevation="@dimen/design_fab_elevation"
         android:gravity="center"
         android:paddingLeft="@dimen/toolbar_button_padding"
         android:paddingRight="@dimen/toolbar_button_padding"
-        android:text="@string/checkin"
         android:visibility="gone"
+        android:drawablePadding="@dimen/toolbar_button_padding"
+        android:drawableLeft="@drawable/ic_message_white_18dp"
+        android:drawableStart="@drawable/ic_message_white_18dp"
+        android:text="@string/checkin"
         app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="right|end"
-        app:layout_behavior="am.gaut.android.toolbarbutton.controls.ToolbarButtonBehaviour" />
+        app:layout_anchorGravity="right|end" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_height="wrap_content"
