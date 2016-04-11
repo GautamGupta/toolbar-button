@@ -58,17 +58,33 @@ public class CollapsingToolbarHelper {
      * Borrowed from {@link android.support.design.widget.AppBarLayout}
      */
     public static int getMinimumHeightForVisibleOverlappingContent(ViewGroup appBarLayout) {
-        int topInset = 0;
-        int minHeight = ViewCompat.getMinimumHeight(appBarLayout);
+        final int topInset = getTopInset(appBarLayout);
+        final int minHeight = ViewCompat.getMinimumHeight(appBarLayout);
         if (minHeight != 0) {
-            return minHeight * 2 + topInset;
-        } else {
-            int childCount = appBarLayout.getChildCount();
-            return childCount >= 1
-                    ? ViewCompat.getMinimumHeight(appBarLayout.getChildAt(childCount - 1)) * 2
-                    + topInset
-                    : 0;
+            // If this layout has a min height, use it (doubled)
+            return (minHeight * 2) + topInset;
         }
+
+        // Otherwise, we'll use twice the min height of our last child
+        final int childCount = appBarLayout.getChildCount();
+        return childCount >= 1
+                ? (ViewCompat.getMinimumHeight(appBarLayout.getChildAt(childCount - 1)) * 2) + topInset
+                : 0;
+    }
+
+    /**
+     * Hack since we don't have access to the private
+     * {@link android.support.design.widget.AppBarLayout.getTopInset()} method
+     */
+    public static int getTopInset(ViewGroup appBarLayout) {
+        int inset = 0;
+
+        int resourceId = appBarLayout.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (ViewCompat.getFitsSystemWindows(appBarLayout) && resourceId > 0) {
+            inset = appBarLayout.getResources().getDimensionPixelSize(resourceId);
+        }
+
+        return inset;
     }
 
     /**
