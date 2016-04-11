@@ -52,6 +52,8 @@ public class ToolbarButton extends Button {
         public void onHidden(ToolbarButton toolbarBtn) {}
     }
 
+    private static final String XMLNS_ANDROID = "http://schemas.android.com/apk/res/android";
+
     private static final int SHOW_HIDE_ANIM_DURATION = 200;
     private static final Interpolator FAST_OUT_LINEAR_IN_INTERPOLATOR = new FastOutLinearInInterpolator();
     private static final Interpolator LINEAR_OUT_SLOW_IN_INTERPOLATOR = new LinearOutSlowInInterpolator();
@@ -70,18 +72,12 @@ public class ToolbarButton extends Button {
         super(context, attrs, defStyleAttr);
 
         // Hide if there's no visibility attribute
-        if (attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "visibility") == null) {
+        if (attrs.getAttributeValue(XMLNS_ANDROID, "visibility") == null) {
             setVisibility(GONE);
         }
 
-        // Set gravity to center if it's not set
-        if (attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "gravity") == null) {
-            setGravity(Gravity.CENTER);
-        }
-
         // Add elevation if it's not set
-        if (Build.VERSION.SDK_INT >= 21 &&
-                attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "elevation") == null) {
+        if (Build.VERSION.SDK_INT >= 21 && attrs.getAttributeValue(XMLNS_ANDROID, "elevation") == null) {
             setElevation(android.support.design.R.dimen.design_fab_elevation);
         }
     }
