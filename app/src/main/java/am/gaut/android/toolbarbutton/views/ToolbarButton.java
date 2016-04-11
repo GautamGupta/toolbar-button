@@ -26,7 +26,7 @@ import am.gaut.android.toolbarbutton.helpers.CollapsingToolbarHelper;
  * wish to change this at runtime then you can do so via
  * {@link #setBackgroundTintList(ColorStateList)}.</p> *
  *
- * Requires ICS+ (sdk 12+)
+ * Requires ICS+ (sdk 14+)
  */
 @CoordinatorLayout.DefaultBehavior(ToolbarButton.Behavior.class)
 public class ToolbarButton extends TextView {

@@ -1,20 +1,16 @@
 package am.gaut.android.toolbarbutton.helpers;
 
-import android.animation.AnimatorListenerAdapter;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
 /**
  * Need to duplicate code here because folks at Google decided to make their classes and methods
- * private
- *
- * Requires ICS+ (sdk 12+)
+ * private.
  */
 public class CollapsingToolbarHelper {
     private static final ThreadLocal<Matrix> sMatrix = new ThreadLocal<>();
