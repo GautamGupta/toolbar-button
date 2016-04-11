@@ -152,6 +152,22 @@
 
     </android.support.v4.widget.NestedScrollView>
 
+    <am.gaut.android.toolbarbutton.ToolbarButton
+        android:id="@+id/btn_toolbar_apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?attr/borderlessButtonStyle"
+        android:background="@drawable/selector_toolbar_button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
+        android:paddingLeft="@dimen/toolbar_button_padding"
+        android:paddingRight="@dimen/toolbar_button_padding"
+        android:drawablePadding="@dimen/toolbar_button_padding"
+        android:drawableLeft="@drawable/ic_message_white_18dp"
+        android:drawableStart="@drawable/ic_message_white_18dp"
+        android:text="@string/checkin"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="right|end" />
+
     <android.support.design.widget.FloatingActionButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
