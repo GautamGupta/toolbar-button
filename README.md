@@ -7,7 +7,7 @@ The problem with anchoring a floating action button to a collapsing toolbar is t
 hidden on scroll. This library allows you to artificially add a button in the toolbar with an
 animation as soon as the FAB hides itself.
 
-Works with Android 4.0+ (
+Works with Android 4.0+ (`minSdkVersion 14`).
 
 
 Gradle
@@ -45,8 +45,9 @@ Add this at the same level where your floating action button is defined in the a
         app:layout_anchorGravity="right|end" />
 ```
 
-Treat the element as a button. Properties in the snippet produce a similar result as in the screen
-capture.
+You can treat the view as a
+[Button](http://developer.android.com/reference/android/widget/Button.html).
+Properties in the snippet produce a similar result as in the screen capture.
 
 `@dimen/toolbar_button_padding` (16dp), `@drawable/selector_toolbar_button`
 ([see](https://github.com/GautamGupta/toolbar-button/blob/master/toolbarbutton/src/main/res/drawable/selector_toolbar_button.xml),
@@ -67,17 +68,20 @@ Credits
 Troubleshooting
 ---------------
 
-*Q. The button hides on scroll*
+**Q. The button hides on scroll**
+
 The default elevation of 6dp (elevation of a FAB) is getting overridden. Try adding
 `elevation="6dp"` property on the element.
 
-*Q. Does this work for Android versions before 4.0?*
+**Q. Does this work for Android versions before 4.0?**
+
 It can be made to work for previous Android versions as well, using different implementation classes
 like the Floating Action Button. If you take up the initiative, please submit a PR.
 
 License
 -------
 
+```
 Copyright 2016 Gautam Gupta
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
@@ -94,3 +98,4 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
 License for the specific language governing permissions and limitations under
 the License.
+```
