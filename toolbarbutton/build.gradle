@@ -1,20 +1,36 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'toolbar-button'
+
+    publishedGroupId = 'am.gaut.android.toolbarbutton'
+    libraryName = 'ToolbarButton'
+    artifact = 'toolbarbutton'
+
+    libraryDescription = 'FAB to Toolbar Button library for Android Material Collapsing Toolbar'
+
+    siteUrl = 'https://github.com/GautamGupta/toolbar-button'
+    gitUrl = 'https://github.com/GautamGupta/toolbar-button.git'
+
+    libraryVersion = '0.1.0'
+
+    developerId = 'gautamgupta'
+    developerName = 'Gautam Gupta'
+    developerEmail = 'gautam@gaut.am'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
 }
 
@@ -24,3 +40,6 @@ dependencies {
         exclude module: 'shared'
     }
 }
+
+apply from: 'https://raw.githubusercontent.com/GautamGupta/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/GautamGupta/JCenter/master/bintrayv1.gradle'
