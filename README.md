@@ -68,10 +68,10 @@ Credits
 Troubleshooting
 ---------------
 
-**Q. The button hides on scroll**
+**Q. The button hides on scroll. Why is this happening?**
 
-The default elevation of 6dp (elevation of a FAB) is getting overridden. Try adding
-`elevation="6dp"` property on the element.
+The default elevation of 6dp is getting overridden, making it compete with the elevation of the
+appbar. Try adding `android:elevation="6dp"` property on the view.
 
 **Q. Does this work for Android versions before 4.0?**
 
