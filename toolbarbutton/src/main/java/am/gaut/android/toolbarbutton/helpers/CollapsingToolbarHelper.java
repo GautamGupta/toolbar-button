@@ -18,7 +18,7 @@ public class CollapsingToolbarHelper {
     private static final Matrix IDENTITY = new Matrix();
 
     /**
-     * Borrowed from {@link android.support.design.widget.AppBarLayout}
+     * Borrowed from android.support.design.widget.AppBarLayout
      */
     public static int getMinimumHeightForVisibleOverlappingContent(ViewGroup appBarLayout) {
         final int topInset = getTopInset(appBarLayout);
@@ -37,7 +37,7 @@ public class CollapsingToolbarHelper {
 
     /**
      * Hack since we don't have access to the private
-     * {@link android.support.design.widget.AppBarLayout getTopInset()} method
+     * android.support.design.widget.AppBarLayout.getTopInset() method
      */
     public static int getTopInset(ViewGroup appBarLayout) {
         int inset = 0;
@@ -51,8 +51,8 @@ public class CollapsingToolbarHelper {
     }
 
     /**
-     * Honeycomb IMPL borrowed from {@link android.support.design.widget.ViewGroupUtils} and
-     * {@link android.support.design.widget.ViewGroupUtilsHoneycomb}
+     * Honeycomb IMPL borrowed from android.support.design.widget.ViewGroupUtils and
+     * android.support.design.widget.ViewGroupUtilsHoneycomb
      */
 
     public static void getDescendantRect(ViewGroup parent, View descendant, Rect out) {
