@@ -16,7 +16,7 @@ Gradle
 ```
 dependencies {
     ...
-    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:design:25.3.1'
     compile 'am.gaut.android.toolbarbutton:toolbarbutton:0.1.0'
 }
 ```
